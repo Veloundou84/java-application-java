@@ -14,15 +14,6 @@ pipeline {
           sh 'mvn package'
         }
       }
-      stage ('Sonarqube analysis and testing'){
-        steps{
-          script{
-            withSonarQubeEnv('sonarqubetoken'){
-              sh 'mvn clean package sonar:sonar'
-            }
-          }
-        }
-      }
       
       stage ("Quality Gate") {
         steps {
